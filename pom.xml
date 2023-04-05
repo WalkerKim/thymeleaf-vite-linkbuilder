@@ -4,7 +4,7 @@
 
     <groupId>kim.figure</groupId>
     <artifactId>thymeleaf-vite-linkbuilder</artifactId>
-    <version>1.0.0-snapshot</version>
+    <version>0.1.0-snapshot</version>
     <packaging>jar</packaging>
 
     <name>ThymeleafViteLinkBuilder</name>
@@ -14,8 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <spring-boot.version>3.0.0-RC2</spring-boot.version>
-        <thymeleaf.version>3.1.0.RC1</thymeleaf.version>
+        <thymeleaf.version>3.1.1.RELEASE</thymeleaf.version>
         <vite.version>3.1.0</vite.version>
     </properties>
 
@@ -30,6 +29,7 @@
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf</artifactId>
             <version>${thymeleaf.version}</version>
+            <scope>provided</scope>
 
         </dependency>
         <dependency>
@@ -79,6 +79,20 @@
                           <goal>deploy</goal>
                         </goals>
                         -->
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
